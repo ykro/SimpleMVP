@@ -26,12 +26,16 @@ implements ContentView {
         ButterKnife.bind(this);
 
         contentAdapter = new ContentAdapter();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(contentAdapter);
+        setupRecyclerView();
 
         ContentModel model = new ContentModelImpl();
         contentPresenter = new ContentPresenterImpl(this, model);
         contentPresenter.getData();
+    }
+
+    private void setupRecyclerView(){
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(contentAdapter);
     }
 
     @Override
