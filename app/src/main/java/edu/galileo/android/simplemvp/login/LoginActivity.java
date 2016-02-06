@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.galileo.android.simplemvp.ContentActivity;
+import edu.galileo.android.simplemvp.content.ContentActivity;
 import edu.galileo.android.simplemvp.R;
 
 
