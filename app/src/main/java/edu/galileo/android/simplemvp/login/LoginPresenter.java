@@ -1,5 +1,7 @@
 package edu.galileo.android.simplemvp.login;
 
+import edu.galileo.android.simplemvp.login.events.LoginEvent;
+
 /**
  * Created by ykro.
  */

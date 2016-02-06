@@ -6,6 +6,7 @@ import java.util.Random;
 
 import edu.galileo.android.simplemvp.libs.EventBus;
 import edu.galileo.android.simplemvp.libs.GreenRobotEventBus;
+import edu.galileo.android.simplemvp.login.events.LoginEvent;
 
 /**
  * Created by ykro.

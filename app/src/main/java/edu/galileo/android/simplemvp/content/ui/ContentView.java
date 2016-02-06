@@ -1,4 +1,4 @@
-package edu.galileo.android.simplemvp.content;
+package edu.galileo.android.simplemvp.content.ui;
 
 import java.util.List;
 

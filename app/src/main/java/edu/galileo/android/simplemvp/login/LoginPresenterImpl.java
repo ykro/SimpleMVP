@@ -4,6 +4,8 @@ import org.greenrobot.eventbus.Subscribe;
 
 import edu.galileo.android.simplemvp.libs.EventBus;
 import edu.galileo.android.simplemvp.libs.GreenRobotEventBus;
+import edu.galileo.android.simplemvp.login.events.LoginEvent;
+import edu.galileo.android.simplemvp.login.ui.LoginView;
 
 /**
  * Created by ykro.

@@ -1,4 +1,4 @@
-package edu.galileo.android.simplemvp.login;
+package edu.galileo.android.simplemvp.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,11 @@ import android.widget.ProgressBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.galileo.android.simplemvp.content.ContentActivity;
+import edu.galileo.android.simplemvp.content.ui.ContentActivity;
 import edu.galileo.android.simplemvp.R;
+import edu.galileo.android.simplemvp.login.LoginPresenter;
+import edu.galileo.android.simplemvp.login.LoginPresenterImpl;
+import edu.galileo.android.simplemvp.login.ui.LoginView;
 
 
 public class LoginActivity extends AppCompatActivity implements LoginView {

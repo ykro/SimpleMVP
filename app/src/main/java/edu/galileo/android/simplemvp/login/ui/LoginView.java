@@ -1,4 +1,4 @@
-package edu.galileo.android.simplemvp.login;
+package edu.galileo.android.simplemvp.login.ui;
 
 /**
  * Created by ykro.
