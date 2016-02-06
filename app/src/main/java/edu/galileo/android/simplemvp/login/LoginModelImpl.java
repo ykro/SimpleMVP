@@ -1,5 +1,8 @@
 package edu.galileo.android.simplemvp.login;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.util.Random;
 
 /**
@@ -14,25 +17,30 @@ public class LoginModelImpl implements LoginModel {
 
     @Override
     public void login(String user, String password) {
-        new Runnable() {
+        new AsyncTask<Void, Void, Void>() {
             @Override
-            public void run() {
-                try {
-                    Thread.sleep(1500);
+            protected Void doInBackground(Void... voids) {
+                long now = System.currentTimeMillis();
+                long expectedElapsedTime = now + 5000;
+                Log.e("MSG",now + " " + expectedElapsedTime);
+
+                while(now < expectedElapsedTime){
+                    now = System.currentTimeMillis();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                Random r = new Random();
+                int number = r.nextInt()*10000;
+                if (number % 2 == 0) {
                     listener.loginSuccess();
-
-                    Random r = new Random();
-                    int number = r.nextInt()*10000;
-                    if (number % 2 == 0) {
-                        listener.loginSuccess();
-                    } else {
-                        listener.loginError("falló");
-                    }
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                } else {
+                    listener.loginError("falló");
                 }
             }
-        }.run();
+        }.execute();
     }
 }
