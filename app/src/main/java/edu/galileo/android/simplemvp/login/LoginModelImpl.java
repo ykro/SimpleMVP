@@ -4,14 +4,17 @@ import android.os.AsyncTask;
 
 import java.util.Random;
 
+import edu.galileo.android.simplemvp.libs.EventBus;
+import edu.galileo.android.simplemvp.libs.GreenRobotEventBus;
+
 /**
  * Created by ykro.
  */
 public class LoginModelImpl implements LoginModel {
-    LoginTaskListener listener;
+    EventBus eventBus;
 
-    public LoginModelImpl(LoginTaskListener listener) {
-        this.listener = listener;
+    public LoginModelImpl() {
+        eventBus = GreenRobotEventBus.getInstance();
     }
 
     @Override
@@ -33,11 +36,15 @@ public class LoginModelImpl implements LoginModel {
                 super.onPostExecute(aVoid);
                 Random r = new Random();
                 int number = r.nextInt(10);
+                LoginEvent event = new LoginEvent();
                 if (number % 2 == 0) {
-                    listener.loginSuccess();
+                    event.setType(LoginEvent.SUCCESS);
                 } else {
-                    listener.loginError("falló");
+                    event.setType(LoginEvent.ERROR);
+                    event.setErrror("falló");
                 }
+
+                eventBus.post(event);
             }
         }.execute();
     }
