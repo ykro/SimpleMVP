@@ -1,7 +1,6 @@
 package edu.galileo.android.simplemvp.login;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.util.Random;
 
@@ -21,8 +20,7 @@ public class LoginModelImpl implements LoginModel {
             @Override
             protected Void doInBackground(Void... voids) {
                 long now = System.currentTimeMillis();
-                long expectedElapsedTime = now + 5000;
-                Log.e("MSG",now + " " + expectedElapsedTime);
+                long expectedElapsedTime = now + 1500;
 
                 while(now < expectedElapsedTime){
                     now = System.currentTimeMillis();
@@ -34,7 +32,7 @@ public class LoginModelImpl implements LoginModel {
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 Random r = new Random();
-                int number = r.nextInt()*10000;
+                int number = r.nextInt(10);
                 if (number % 2 == 0) {
                     listener.loginSuccess();
                 } else {
