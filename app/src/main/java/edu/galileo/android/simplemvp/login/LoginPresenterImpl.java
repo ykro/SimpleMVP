@@ -3,7 +3,6 @@ package edu.galileo.android.simplemvp.login;
 import org.greenrobot.eventbus.Subscribe;
 
 import edu.galileo.android.simplemvp.libs.EventBus;
-import edu.galileo.android.simplemvp.libs.GreenRobotEventBus;
 import edu.galileo.android.simplemvp.login.events.LoginEvent;
 import edu.galileo.android.simplemvp.login.ui.LoginView;
 
@@ -15,10 +14,10 @@ public class LoginPresenterImpl implements LoginPresenter {
     LoginModel model;
     EventBus eventBus;
 
-    public LoginPresenterImpl(LoginView view) {
+    public LoginPresenterImpl(LoginView view, LoginModel model, EventBus eventBus) {
         this.view = view;
-        this.model = new LoginModelImpl();
-        eventBus = GreenRobotEventBus.getInstance();
+        this.model = model;
+        this.eventBus = eventBus;
     }
 
     @Override

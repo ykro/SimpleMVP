@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import java.util.Random;
 
 import edu.galileo.android.simplemvp.libs.EventBus;
-import edu.galileo.android.simplemvp.libs.GreenRobotEventBus;
 import edu.galileo.android.simplemvp.login.events.LoginEvent;
 
 /**
@@ -14,8 +13,8 @@ import edu.galileo.android.simplemvp.login.events.LoginEvent;
 public class LoginModelImpl implements LoginModel {
     EventBus eventBus;
 
-    public LoginModelImpl() {
-        eventBus = GreenRobotEventBus.getInstance();
+    public LoginModelImpl(EventBus eventBus) {
+        this.eventBus = eventBus;
     }
 
     @Override

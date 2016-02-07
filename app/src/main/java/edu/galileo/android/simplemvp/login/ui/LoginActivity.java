@@ -8,14 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import edu.galileo.android.simplemvp.content.ui.ContentActivity;
 import edu.galileo.android.simplemvp.R;
+import edu.galileo.android.simplemvp.content.ui.ContentActivity;
+import edu.galileo.android.simplemvp.libs.EventBus;
+import edu.galileo.android.simplemvp.libs.di.LibsModule;
+import edu.galileo.android.simplemvp.login.LoginModel;
 import edu.galileo.android.simplemvp.login.LoginPresenter;
-import edu.galileo.android.simplemvp.login.LoginPresenterImpl;
-import edu.galileo.android.simplemvp.login.ui.LoginView;
+import edu.galileo.android.simplemvp.login.di.DaggerLoginComponent;
+import edu.galileo.android.simplemvp.login.di.LoginModule;
 
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -24,15 +29,35 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Bind(R.id.email_sign_in_button) Button buttonSubmit;
     @Bind(R.id.login_progress) ProgressBar progressBar;
 
-    LoginPresenter presenter;
+    @Inject EventBus eventBus;
+    @Inject LoginModel model;
+    @Inject LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        presenter = new LoginPresenterImpl(this);
+
+        /*
+        EventBus eventBus = GreenRobotEventBus.getInstance();
+        LoginModel model = new LoginModelImpl(eventBus);
+        presenter = new LoginPresenterImpl(this, model, eventBus);
+        */
+        setupInjection();
         presenter.onCreate();
+    }
+
+    private void setupInjection() {
+        //LoginComponent loginComponent =
+        DaggerLoginComponent
+                .builder()
+                .libsModule(new LibsModule())
+                .loginModule(new LoginModule(this))
+                .build()
+                .inject(this);
+
+        //presenter = loginComponent.getPresenter();
     }
 
     @Override
