@@ -5,6 +5,6 @@ package edu.galileo.android.simplemvp.content;
  */
 public interface ContentRepository {
     void getNumbers();
-    void getLetters();
+    void getWords();
     void getNames();
 }

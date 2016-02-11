@@ -33,7 +33,7 @@ public class ContentRepositoryImpl implements ContentRepository {
     }
 
     @Override
-    public void getLetters() {
+    public void getWords() {
         String[] data = {"a", "b", "c"};
         ContentEvent event = new ContentEvent();
         event.setData(Arrays.asList(data));

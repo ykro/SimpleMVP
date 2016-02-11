@@ -3,15 +3,15 @@ package edu.galileo.android.simplemvp.content;
 /**
  * Created by ykro.
  */
-public class LettersInteractorImpl implements LettersInteractor {
+public class WordsInteractorImpl implements WordsInteractor {
     ContentRepository contentRepository;
 
-    public LettersInteractorImpl() {
+    public WordsInteractorImpl() {
         contentRepository = ContentRepositoryImpl.getInstance();
     }
 
     @Override
-    public void getLetters() {
-        contentRepository.getLetters();
+    public void getWords() {
+        contentRepository.getWords();
     }
 }

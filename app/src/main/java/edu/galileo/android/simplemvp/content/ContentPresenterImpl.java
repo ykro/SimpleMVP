@@ -27,8 +27,8 @@ public class ContentPresenterImpl implements ContentPresenter  {
 
     @Override
     public void getLetters() {
-        LettersInteractor interactor = new LettersInteractorImpl();
-        interactor.getLetters();
+        WordsInteractor interactor = new WordsInteractorImpl();
+        interactor.getWords();
     }
 
     @Override
