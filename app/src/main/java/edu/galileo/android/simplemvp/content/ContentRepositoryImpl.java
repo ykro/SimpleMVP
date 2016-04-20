@@ -26,7 +26,7 @@ public class ContentRepositoryImpl implements ContentRepository {
 
     @Override
     public void getNumbers() {
-        String[] data = {"uno", "dos", "tres"};
+        String[] data = {"one", "two", "three"};
         ContentEvent event = new ContentEvent();
         event.setData(Arrays.asList(data));
         eventBus.post(event);
@@ -34,7 +34,7 @@ public class ContentRepositoryImpl implements ContentRepository {
 
     @Override
     public void getWords() {
-        String[] data = {"a", "b", "c"};
+        String[] data = {"hello", "bye"};
         ContentEvent event = new ContentEvent();
         event.setData(Arrays.asList(data));
         eventBus.post(event);

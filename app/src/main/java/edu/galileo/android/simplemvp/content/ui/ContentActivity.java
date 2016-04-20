@@ -12,9 +12,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import edu.galileo.android.simplemvp.R;
-import edu.galileo.android.simplemvp.content.adapters.ContentAdapter;
 import edu.galileo.android.simplemvp.content.ContentPresenter;
 import edu.galileo.android.simplemvp.content.ContentPresenterImpl;
+import edu.galileo.android.simplemvp.content.adapters.ContentAdapter;
 
 public class ContentActivity extends AppCompatActivity
 implements ContentView {
